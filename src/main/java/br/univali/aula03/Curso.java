@@ -12,12 +12,14 @@ public class Curso {
         this.etapas = new Etapa[numeroEtapas];
     }
 
-    public void addEtapa(Etapa etapa) {
+    public boolean addEtapa(Etapa etapa) {
         for (int i = 0; i < etapas.length; i++) {
             if (etapas[i] == null) {
                 etapas[i] = etapa;
+                return true;
             }
         }
+        return false;
     }
 
     public String toString() {

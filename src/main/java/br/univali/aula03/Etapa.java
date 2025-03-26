@@ -10,12 +10,14 @@ public class Etapa {
         this.disciplinas = new Disciplina[numeroDisciplinas];
     }
 
-    public void addDisciplina(Disciplina disciplina) {
+    public boolean addDisciplina(Disciplina disciplina) {
         for (int i = 0; i < this.disciplinas.length; i++) {
             if (this.disciplinas[i] == null) {
                 this.disciplinas[i] = disciplina;
+                return true;
             }
         }
+        return false;
     }
 
 }

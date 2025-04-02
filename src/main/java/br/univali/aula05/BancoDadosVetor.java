@@ -2,7 +2,7 @@ package br.univali.aula05;
 
 import br.univali.aula04.Tarefa;
 
-public class BancoDadosVetor extends BancoDados {
+public class BancoDadosVetor implements BancoDados {
 
     private Tarefa[] tarefas = new Tarefa[10];
     private int id = 0;

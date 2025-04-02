@@ -32,4 +32,14 @@ public class Tarefa {
     public Status getStatus() {
         return status;
     }
+
+    @Override
+    public String toString() {
+        return "Tarefa{" +
+                "responsavel=" + responsavel +
+                ", descricao='" + descricao + '\'' +
+                ", nome='" + nome + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

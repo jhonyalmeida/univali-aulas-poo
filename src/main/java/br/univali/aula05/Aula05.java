@@ -1,9 +1,8 @@
 package br.univali.aula05;
 
 import br.univali.aula04.Cargo;
-import br.univali.aula04.Status;
-import br.univali.aula04.Tarefa;
 import br.univali.aula04.Usuario;
+import br.univali.aula08.BancoDadosArquivo;
 
 import java.util.Scanner;
 
@@ -17,7 +16,7 @@ public class Aula05 {
     private void executar() {
         Usuario usuario =  new Usuario(1L, "Usuario", "usuario@pudim.com.br", new Cargo("admin"));
 
-        BancoDados bancoDados = new BancoDadosVetor();
+        BancoDados bancoDados = new BancoDadosArquivo();
         Scanner scanner = new Scanner(System.in);
 
         int opcao = 0;

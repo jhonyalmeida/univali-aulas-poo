@@ -1,6 +1,11 @@
 package br.univali.aula04;
 
-public class Tarefa {
+import br.univali.aula07.NaoAutorizadoException;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Tarefa implements Serializable {
 
     private String nome;
     private String descricao;
@@ -19,14 +24,13 @@ public class Tarefa {
         this.status = status;
     }
 
-    public boolean alterarStatus(Usuario usuario, Status status) {
+    public void alterarStatus(Usuario usuario, Status status) throws NaoAutorizadoException {
         if (!usuario.equals(this.responsavel)) {
             System.out.println("Usuario nao permitido");
-            return false;
+            throw new NaoAutorizadoException(this.responsavel);
         }
         this.status = status;
         System.out.println("Status alterado para " + this.status.toString());
-        return true;
     }
 
     public Status getStatus() {
@@ -35,11 +39,18 @@ public class Tarefa {
 
     @Override
     public String toString() {
-        return "Tarefa{" +
-                "responsavel=" + responsavel +
-                ", descricao='" + descricao + '\'' +
-                ", nome='" + nome + '\'' +
-                ", status=" + status +
-                '}';
+        return String.format("{ \"nome\": \"%s\", \"descricao\": \"%s\", \"status\": \"%s\", \"responsavel\": %s }", nome, descricao, status, responsavel);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Tarefa)) return false;
+        Tarefa tarefa = (Tarefa) o;
+        return Objects.equals(nome, tarefa.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(nome);
     }
 }

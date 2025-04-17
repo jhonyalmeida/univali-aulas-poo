@@ -1,6 +1,8 @@
 package br.univali.aula04;
 
-public class Status {
+import java.io.Serializable;
+
+public class Status implements Serializable {
 
     private Integer ordem;
     private String nome;

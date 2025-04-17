@@ -1,5 +1,7 @@
 package br.univali.aula04;
 
+import br.univali.aula07.NaoAutorizadoException;
+
 public class TarefaDomestica extends Tarefa {
 
     Aposento aposento;
@@ -10,9 +12,9 @@ public class TarefaDomestica extends Tarefa {
     }
 
     @Override
-    public boolean alterarStatus(Usuario usuario, Status status) {
+    public void alterarStatus(Usuario usuario, Status status) throws NaoAutorizadoException {
         System.out.println("-- Tarefa Doméstica na(o) " + aposento + " --");
-        return super.alterarStatus(usuario, status);
+        super.alterarStatus(usuario, status);
     }
 
     public Aposento getAposento() {

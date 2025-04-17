@@ -1,8 +1,8 @@
 package br.univali.aula04;
 
-import java.util.Objects;
+import java.io.Serializable;
 
-public class Usuario {
+public class Usuario implements Comparable<Usuario>, Serializable {
 
     private Long id;
     private String nome;
@@ -25,4 +25,19 @@ public class Usuario {
         return id.equals(usuario.id);
     }
 
+    @Override
+    public String toString() {
+        return String.format("{ \"id\": %d, \"nome\": \"%s\", \"email\": \"%s\" }", id, nome, email);
+    }
+
+    @Override
+    public int compareTo(Usuario o) {
+        if (this.id > o.id) {
+            return 1;
+        }
+        if (this.id < o.id) {
+            return -1;
+        }
+        return 0;
+    }
 }

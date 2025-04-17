@@ -1,5 +1,7 @@
 package br.univali.aula04;
 
+import br.univali.aula07.NaoAutorizadoException;
+
 public class TarefaEscolar extends Tarefa {
 
     private String dataEntrega;
@@ -12,12 +14,11 @@ public class TarefaEscolar extends Tarefa {
     }
 
     @Override
-    public boolean alterarStatus(Usuario usuario, Status status) {
+    public void alterarStatus(Usuario usuario, Status status) throws NaoAutorizadoException {
         System.out.println("-- Tarefa Escolar de " + disciplina + " para entrega em " + dataEntrega + " --");
         if (!status.isMaior(getStatus())) {
             System.out.println("nao pode retroceder status, o tempo não volta");
-            return false;
         }
-        return super.alterarStatus(usuario, status);
+        super.alterarStatus(usuario, status);
     }
 }

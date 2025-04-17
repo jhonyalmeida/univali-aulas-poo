@@ -1,8 +1,10 @@
 package br.univali.aula04;
 
+import br.univali.aula07.NaoAutorizadoException;
+
 public class Aula04 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NaoAutorizadoException {
         Cargo c1 = new Cargo("Admin");
         Usuario u1 = new Usuario(1L, "Fred", "fred@yahoo.com", c1);
         Usuario u2 = new Usuario(2L, "Lara", "lara@croft.com", c1);

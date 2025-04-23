@@ -13,13 +13,13 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BancoDadosArquivo implements BancoDados {
+public class BancoDeDadosArquivo implements BancoDados {
 
     private static final String FILENAME = "tarefas.ser";
 
     private Map<Integer, Tarefa> tarefas = new HashMap<>();
 
-    public BancoDadosArquivo() {
+    public BancoDeDadosArquivo() {
         init();
     }
 
@@ -36,7 +36,6 @@ public class BancoDadosArquivo implements BancoDados {
         return id;
     }
 
-    @SuppressWarnings("unchecked")
     private void init() {
         File file = Paths.get(FILENAME).toFile();
         if (!file.exists()) {
@@ -44,8 +43,11 @@ public class BancoDadosArquivo implements BancoDados {
                 if (file.createNewFile()) {
                     syncToFile();
                 }
+                System.out.println("Salvo com sucesso!");
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new ConexaoException(e, "Erro ao criar o arquivo");
+            } finally {
+                System.out.println("Sempre executa isso");
             }
         }
 
@@ -53,19 +55,21 @@ public class BancoDadosArquivo implements BancoDados {
             return;
         }
 
-        try (FileInputStream input = new FileInputStream(file); ObjectInputStream in = new ObjectInputStream(input)) {
+        try (FileInputStream input = new FileInputStream(file);
+             ObjectInputStream in = new ObjectInputStream(input)) {
             tarefas = (Map<Integer, Tarefa>) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new ConexaoException(e, "Erro ao ler o arquivo");
         }
     }
 
     private void syncToFile() {
         File file = Paths.get(System.getProperty("user.dir"), FILENAME).toFile();
-        try (FileOutputStream output = new FileOutputStream(file); ObjectOutputStream out = new ObjectOutputStream(output)) {
-            out.writeObject(tarefas);
+        try (FileOutputStream fileOutput = new FileOutputStream(file);
+             ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput)) {
+            objectOutput.writeObject(tarefas);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ConexaoException(e, "Erro ao atualizar o arquivo");
         }
     }
 

@@ -13,7 +13,6 @@ public class ProductApp extends JFrame {
     private JTextField priceField;
     private JButton addButton;
     private JButton updateButton;
-    private JButton clearButton;
     private int selectedRow = -1;
 
     public ProductApp() {
@@ -81,7 +80,7 @@ public class ProductApp extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         addButton = new JButton("Add");
         updateButton = new JButton("Update");
-        clearButton = new JButton("Clear");
+        JButton clearButton = new JButton("Clear");
         updateButton.setEnabled(false);
 
         addButton.addActionListener(this::addProduct);
@@ -163,7 +162,7 @@ public class ProductApp extends JFrame {
         addButton.setEnabled(true);
     }
 
-    public static final void main(String[] args) {
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

@@ -2,7 +2,7 @@ package br.univali.aula13;
 
 public class BuscarComBarcode implements Strategy {
     @Override
-    public String buscarDividas(String input) {
-        return "buscando dividas pelo codigo de barra...";
+    public String buscarDividas(Context context) {
+        return "buscando dividas pelo codigo de barra " + context.getUserInput();
     }
 }

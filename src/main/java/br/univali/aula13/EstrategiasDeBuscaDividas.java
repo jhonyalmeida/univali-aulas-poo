@@ -3,16 +3,16 @@ package br.univali.aula13;
 public enum EstrategiasDeBuscaDividas implements Strategy {
     BARCODE {
         @Override
-        public String buscarDividas(String input) {
-            return new BuscarComBarcode().buscarDividas(input);
+        public String buscarDividas(Context context) {
+            return new BuscarComBarcode().buscarDividas(context);
         }
     },
     REFERENCE{
         @Override
-        public String buscarDividas(String input) {
-            return new BuscarComReferencia().buscarDividas(input);
+        public String buscarDividas(Context context) {
+            return new BuscarComReferencia().buscarDividas(context);
         }
     };
 
-    abstract public String buscarDividas(String input);
+    abstract public String buscarDividas(Context context);
 }

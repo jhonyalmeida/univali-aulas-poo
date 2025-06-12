@@ -1,6 +1,7 @@
 package br.univali.desktop;
 
 public class Product {
+
     private String name;
     private String description;
     private double price;
@@ -11,7 +12,6 @@ public class Product {
         this.price = price;
     }
 
-    // Getters and setters
     public String getName() {
         return name;
     }

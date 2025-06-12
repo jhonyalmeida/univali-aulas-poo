@@ -11,19 +11,9 @@ public class Aula13 {
 
         //Exemplo de uso da strategy
         String inputDoUsuario = "1278587165247682354872356";
-        Strategy selectedStrategy = EstrategiasDeBuscaDividas.REFERENCE;
-        String resultado = selectedStrategy.buscarDividas(inputDoUsuario);
+        Strategy selectedStrategy = EstrategiasDeBuscaDividas.BARCODE;
+        String resultado = new StrategyContext(selectedStrategy, "1234").execute();
         System.out.println(resultado);
-
-        Pessoa pessoa = new Pessoa("nome");
-        PessoaFacade pessoaFacade = new SistemaLegado();
-        pessoaFacade.createPessoa(pessoa);
-
-        //Exemplo de adapter no Java
-        OutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write("meu texto aqui".getBytes());
-        Writer writer = new OutputStreamWriter(outputStream);
-        writer.write("meu texto aqui");
     }
 
 }

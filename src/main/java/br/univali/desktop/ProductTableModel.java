@@ -1,5 +1,7 @@
 package br.univali.desktop;
 
+import br.univali.threads.TarefaProdutos;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +31,7 @@ public class ProductTableModel extends AbstractTableModel {
     public void updateProduct(int row, Product product) {
         products.set(row, product);
         fireTableRowsUpdated(row, row);
+        new Thread(new TarefaProdutos(products)).start();
     }
 
     @Override

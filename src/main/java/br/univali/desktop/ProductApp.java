@@ -1,5 +1,7 @@
 package br.univali.desktop;
 
+import br.univali.threads.TarefaProdutos;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

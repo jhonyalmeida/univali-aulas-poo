@@ -1,8 +1,9 @@
 package br.univali.turma2502;
 
-public class Main {
+public class Aula04 {
 
     public static void main(String[] args) {
+        Arma arma = new Arma("espada legal", 15);
         Personagem p1 = new Personagem(
                 "Squall", 12, 10, 10);
         Personagem p2 = new Personagem(

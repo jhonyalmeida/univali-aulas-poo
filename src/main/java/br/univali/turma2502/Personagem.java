@@ -25,6 +25,18 @@ public class Personagem {
                 " ataca " + personagem.nome);
     }
 
+    public void atacar(Monstro monstro) {
+        int dano = this.ataque + arma.getAtaque();
+        for (String fraqueza : monstro.getFraquezas()) {
+            String elemento = arma.getElemento();
+            if (fraqueza.equals(elemento)) {
+                System.out.println("dano duplicado");
+                dano = dano * 2;
+            }
+        }
+        //causar dano
+    }
+
     public void defender() {
         System.out.println(this.nome + " em defesa");
     }
@@ -45,6 +57,10 @@ public class Personagem {
 
     public void usarAcessorio(int slot) {
         this.acessorios[slot].ativar(this);
+    }
+
+    public void equipar(Arma arma) {
+        this.arma = arma;
     }
 
 }

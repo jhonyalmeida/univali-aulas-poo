@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Monstro extends Personagem {
 
-    private List<String> fraquezas;
+    private List<Elemento> fraquezas;
 
     public Monstro(String nome,
                    int hp, int ataque, int defesa) {
         super(nome, hp, ataque, defesa);
-        fraquezas = new ArrayList<String>();
+        fraquezas = new ArrayList<>();
     }
 
     public void patrulhar() {
@@ -21,7 +21,7 @@ public class Monstro extends Personagem {
         System.out.println(getNome() + " esquivou");
     }
 
-    public void addFraqueza(String fraqueza) {
+    public void addFraqueza(Elemento fraqueza) {
         fraquezas.add(fraqueza);
     }
 
@@ -29,7 +29,7 @@ public class Monstro extends Personagem {
         return getNome() + " " + fraquezas;
     }
 
-    public List<String> getFraquezas() {
+    public List<Elemento> getFraquezas() {
         return fraquezas;
     }
 

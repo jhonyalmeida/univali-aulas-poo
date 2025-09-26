@@ -10,8 +10,8 @@ public class Aula04 {
                 "Rinoa", 16, 8, 12);
         Acessorio bomba = new BombaFumaca();
         Acessorio medalhao = new Medalhao();
-        p1.addAcessorio(bomba, 0);
-        p1.addAcessorio(medalhao, 1);
+        //p1.addAcessorio(bomba, 0);
+        //p1.addAcessorio(medalhao, 1);
         p1.atacar(p2);
         p1.usarAcessorio(1);
         p1.usarAcessorio(0);

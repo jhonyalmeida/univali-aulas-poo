@@ -2,7 +2,7 @@ package br.univali.turma2502;
 
 public class Personagem {
 
-    private String nome;
+    private final String nome;
     private int hp;
     private int ataque;
     private int defesa;
@@ -26,12 +26,12 @@ public class Personagem {
     }
 
     public void atacar(Monstro monstro) {
-        int dano = this.ataque + arma.getAtaque();
-        for (String fraqueza : monstro.getFraquezas()) {
-            String elemento = arma.getElemento();
-            if (fraqueza.equals(elemento)) {
+        double dano = this.ataque + arma.getAtaque();
+        for (Elemento fraqueza : monstro.getFraquezas()) {
+            Elemento elemento = arma.getElemento();
+            if (fraqueza == elemento) {
                 System.out.println("dano duplicado");
-                dano = dano * 2;
+                dano = dano * fraqueza.fatorDano;
             }
         }
         //causar dano
@@ -51,8 +51,15 @@ public class Personagem {
         return nome;
     }
 
-    public void addAcessorio(Acessorio acessorio, int slot) {
-        this.acessorios[slot] = acessorio;
+    public void addAcessorio(Acessorio acessorio, int slot) throws PosicaoInvalidaException {
+        try {
+            if (slot >= this.acessorios.length) {
+                throw new PosicaoInvalidaException();
+            }
+            this.acessorios[slot] = acessorio;
+        } finally {
+            System.out.println("Vou executar?");
+        }
     }
 
     public void usarAcessorio(int slot) {

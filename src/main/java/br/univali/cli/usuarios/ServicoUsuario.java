@@ -10,4 +10,8 @@ public class ServicoUsuario {
         System.out.println("cadastro de usuário...");
     }
 
+    public void excluirUsuario() {
+        System.out.println("Excluindo usuário...");
+    }
+
 }

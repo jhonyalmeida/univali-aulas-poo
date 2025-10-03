@@ -1,24 +1,26 @@
 package br.univali.cli.menu;
 
-import br.univali.cli.usuarios.ServicoUsuario;
-
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Menu {
 
     private Scanner scanner;
-    private List<Opcao> opcoes;
+    private Map<Integer, Opcao> opcoes;
 
     public Menu(Scanner scanner, List<Opcao> opcoes) {
         this.scanner = scanner;
-        this.opcoes = opcoes;
+        this.opcoes = new HashMap<>();
+        for (Opcao opcao : opcoes) {
+            this.opcoes.put(opcao.getCodigo(), opcao);
+        }
     }
 
     public void exibirOpcoes() {
         System.out.println("Digite o número da opção desejada:");
-        for (Opcao opcao : opcoes) {
+        for (Opcao opcao : opcoes.values()) {
             System.out.println(opcao.exibir());
         }
 
@@ -28,15 +30,11 @@ public class Menu {
             if (input == 0) {
                 System.exit(0);
             }
-            boolean executou = false;
-            for (Opcao opcao : opcoes) {
-                if (opcao.checar(input)) {
-                    executou = true;
-                    break;
-                }
-            }
-            if (!executou) {
+            Opcao opcao = opcoes.get(input);
+            if (opcao == null) {
                 System.out.println("Opção inválida");
+            } else {
+                opcao.checar(input);
             }
         }
     }

@@ -1,5 +1,7 @@
 package br.univali.cli.menu;
 
+import br.univali.cli.util.Acao;
+
 public class Opcao {
 
     private int codigo;
@@ -15,6 +17,10 @@ public class Opcao {
         this.codigo = codigo;
         this.texto = texto;
         this.acao = acao;
+    }
+
+    public int getCodigo() {
+        return codigo;
     }
 
     public String exibir() {

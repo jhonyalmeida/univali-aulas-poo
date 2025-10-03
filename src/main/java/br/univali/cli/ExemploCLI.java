@@ -3,6 +3,7 @@ package br.univali.cli;
 import br.univali.cli.menu.Menu;
 import br.univali.cli.menu.Opcao;
 import br.univali.cli.usuarios.AcaoCadastrarUsuario;
+import br.univali.cli.usuarios.AcaoExcluirUsuario;
 import br.univali.cli.usuarios.AcaoListarUsuario;
 import br.univali.cli.usuarios.ServicoUsuario;
 
@@ -22,6 +23,7 @@ public class ExemploCLI {
         ServicoUsuario servicoUsuario = new ServicoUsuario();
         opcoes.add(new Opcao(1, "1 - Lista usuários", new AcaoListarUsuario(servicoUsuario)));
         opcoes.add(new Opcao(2, "2 - Cadastrar usuário", new AcaoCadastrarUsuario(servicoUsuario)));
+        opcoes.add(new Opcao(3, "3 - Excluir usuário", new AcaoExcluirUsuario(servicoUsuario)));
         // novas opcoes
         Menu menu = new Menu(scanner, opcoes);
         menu.exibirOpcoes();

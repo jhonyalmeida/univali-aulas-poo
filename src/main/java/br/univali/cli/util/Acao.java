@@ -1,4 +1,4 @@
-package br.univali.cli.menu;
+package br.univali.cli.util;
 
 public interface Acao {
     void executar();

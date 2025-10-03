@@ -1,6 +1,6 @@
 package br.univali.cli.usuarios;
 
-import br.univali.cli.menu.Acao;
+import br.univali.cli.util.Acao;
 
 public class AcaoCadastrarUsuario implements Acao {
 

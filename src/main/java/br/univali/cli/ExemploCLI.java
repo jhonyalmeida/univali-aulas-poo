@@ -1,11 +1,11 @@
 package br.univali.cli;
 
+import br.univali.cli.core.ServicoGenerico;
 import br.univali.cli.menu.Menu;
 import br.univali.cli.menu.Opcao;
-import br.univali.cli.usuarios.AcaoCadastrarUsuario;
-import br.univali.cli.usuarios.AcaoExcluirUsuario;
-import br.univali.cli.usuarios.AcaoListarUsuario;
-import br.univali.cli.usuarios.ServicoUsuario;
+import br.univali.cli.produto.Produto;
+import br.univali.cli.produto.ServiceProduto;
+import br.univali.cli.usuarios.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,7 +14,30 @@ import java.util.List;
 public class ExemploCLI {
 
     public static void main(String[] args) {
-        new ExemploCLI();
+        ServicoGenerico<String, Usuario> servico = new ServicoUsuario();
+        exemplo(servico);
+        servico.listar();
+
+        Usuario usuario = new Usuario("ET Bilu", "bilu@aol.com");
+        servico.cadastrar(usuario);
+        System.out.println(servico.listar());
+
+        ServiceProduto servicoProduto = new ServiceProduto();
+        Produto produto = new Produto(1L, "iPhone 20", 99999.0);
+        servicoProduto.cadastrar(produto);
+        System.out.println(servicoProduto.listar());
+
+        System.out.println(servicoProduto.get(1L));
+    }
+
+    public static void exemplo(ServicoGenerico<String, Usuario> servico) {
+        System.out.println("É um serviço genérico");
+        servico = new ServicoUsuario();
+        servico.cadastrar(new Usuario("Will Smith", "xxx"));
+    }
+
+    public static void exemplo(ServicoUsuario servico) {
+        System.out.println("É um serviço de usuário");
     }
 
     public ExemploCLI() {

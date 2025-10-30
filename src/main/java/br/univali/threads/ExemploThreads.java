@@ -4,14 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ExemploThreads {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Thread t1 = new Thread(() -> {
-            try {
-                TimeUnit.MILLISECONDS.sleep(100);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
             System.out.println("t1");
         });
 
@@ -21,6 +16,9 @@ public class ExemploThreads {
 
         t1.start();
         t2.start();
+        t1.join();
+        t2.join();
+        System.out.println("t-main");
     }
 
 }

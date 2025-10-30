@@ -12,6 +12,6 @@ public class AcaoListarUsuario implements Acao {
 
     @Override
     public void executar() {
-        servicoUsuario.listarUsuarios();
+        servicoUsuario.listar();
     }
 }

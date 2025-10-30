@@ -12,7 +12,7 @@ public class AcaoExcluirUsuario implements Acao {
 
     @Override
     public void executar() {
-        servicoUsuario.excluirUsuario();
+
     }
 
     public void fazerOutraCoisa() {

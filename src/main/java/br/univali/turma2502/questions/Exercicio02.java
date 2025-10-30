@@ -1,0 +1,38 @@
+package br.univali.turma2502.questions;
+
+/**
+ 2) Qual é a saída do programa abaixo?
+
+ a) "Digite seu código de pessoa"
+ b) "Digite seu código de funcionário"
+ c) O código não compila por conflito de métodos
+ d) Uma RuntimeException é lançada ao executar o programa
+
+ */
+
+public class Exercicio02 {
+
+    public static void main(String[] args) {
+        new Exercicio02();
+    }
+
+    public Exercicio02() {
+        Pessoa pessoa = new Funcionario();
+        pedirCodigo(pessoa);
+    }
+
+    private void pedirCodigo(Pessoa pessoa) {
+        System.out.println("Digite seu código de pessoa");
+    }
+
+    private void pedirCodigo(Funcionario pessoa) {
+        System.out.println("Digite seu código de funcionário");
+    }
+
+    static class Pessoa {
+    }
+
+    static class Funcionario extends Pessoa {
+    }
+
+}

@@ -3,6 +3,7 @@ package br.univali.threads;
 import br.univali.desktop.Product;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +15,6 @@ public class TarefaProdutos implements Runnable {
         this.products = products;
     }
 
-    @Override
     public void run() {
         System.out.println("Tarefa executando em paralelo...");
         try {
@@ -24,10 +24,16 @@ public class TarefaProdutos implements Runnable {
         }
         //uso de stream para transformar uma lista de produtos em uma string
 
-        String produtosString = products.stream()
-                        .map(product -> product.getName())
-                        .collect(Collectors.joining(","));
+        List<Product> products1 = new ArrayList<>();
+        products1.add(new Product("Abacate", "", 1));
+        products1.add(new Product("Maça", "", 3));
+        products1.add(new Product("Beterraba", "", 1));
 
-        JOptionPane.showMessageDialog(null, "Produtos: " + products);
+        List<String> listaProdutos = products.stream()
+                .filter(p -> p.getName().startsWith("A"))
+                .map(product -> product.getName())
+                .collect(Collectors.toList());
+
+        System.out.println("Produtos: " + listaProdutos);
     }
 }

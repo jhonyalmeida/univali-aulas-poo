@@ -12,6 +12,6 @@ public class AcaoCadastrarUsuario implements Acao {
 
     @Override
     public void executar() {
-        servicoUsuario.cadastrarUsuario();
+        servicoUsuario.cadastrar(null);
     }
 }

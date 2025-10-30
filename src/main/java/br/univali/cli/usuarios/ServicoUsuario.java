@@ -1,17 +1,12 @@
 package br.univali.cli.usuarios;
 
-public class ServicoUsuario {
+import br.univali.cli.core.ServicoGenerico;
 
-    public void listarUsuarios() {
-        System.out.println("listando usuários...");
+import java.util.Collection;
+
+public class ServicoUsuario extends ServicoGenerico<String, Usuario> {
+    public Collection<Usuario> listar() {
+        System.out.println(bancoDados);
+        return super.listar();
     }
-
-    public void cadastrarUsuario() {
-        System.out.println("cadastro de usuário...");
-    }
-
-    public void excluirUsuario() {
-        System.out.println("Excluindo usuário...");
-    }
-
 }

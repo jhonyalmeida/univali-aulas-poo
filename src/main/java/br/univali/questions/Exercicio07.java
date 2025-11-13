@@ -23,7 +23,7 @@ public class Exercicio07 {
 
 class Robo {
     private String nome;
-    private Arma arma;
+    private Arma arma = new Arma("lança-granadas");
 
     public Robo(String nome) {
         this.nome = nome;

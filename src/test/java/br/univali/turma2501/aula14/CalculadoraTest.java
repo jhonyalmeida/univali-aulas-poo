@@ -1,10 +1,5 @@
 package br.univali.turma2501.aula14;
 
-import static org.mockito.Mockito.*;
-
-import br.univali.turma2501.aula14.Calculadora;
-import br.univali.turma2501.aula14.CalculadoraException;
-import br.univali.turma2501.aula14.RandomGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -32,24 +27,24 @@ class CalculadoraTest {
 
     @Test
     void testNumeroAleatorio() {
-        RandomGenerator randomGenerator = () -> {
-            return 6;
-        };
+        RandomGenerator randomGenerator = () -> 6;
+        int a = 15;
         Calculadora calculadora = new Calculadora(randomGenerator);
-        int result = calculadora.getAleatorio();
-        Assertions.assertEquals(6, result);
+        int result = calculadora.somarAleatorio(a);
+        Assertions.assertEquals(21, result);
     }
 
     @Test
     void testNumeroAleatorioV2() {
-        RandomGenerator randomGenerator = Mockito.mock(RandomGenerator.class);
-        when(randomGenerator.getRandomInt()).thenReturn(6);
-        Calculadora calculadora = new Calculadora(randomGenerator);
-        int result = calculadora.getAleatorio();
-        Assertions.assertEquals(6, result);
-        when(randomGenerator.getRandomInt()).thenReturn(5);
-        result = calculadora.getAleatorio();
-        Assertions.assertEquals(5, result);
+        RandomGeneratorImpl mock = Mockito.mock(RandomGeneratorImpl.class);
+        Mockito.when(mock.getRandomInt()).thenReturn(7);
+        Calculadora calculadora = new Calculadora(mock);
+        int a = 14;
+
+        int soma = calculadora.somarAleatorio(a);
+
+        Assertions.assertEquals(21, soma);
+        Mockito.verify(mock, Mockito.times(1)).getRandomInt();
     }
 
 }

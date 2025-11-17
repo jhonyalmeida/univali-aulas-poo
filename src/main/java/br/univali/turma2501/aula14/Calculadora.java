@@ -24,8 +24,8 @@ public class Calculadora {
         }
     }
 
-    public int getAleatorio() {
-        return randomGenerator.getRandomInt();
+    public int somarAleatorio(int numero) {
+        return numero + randomGenerator.getRandomInt();
     }
 
 }

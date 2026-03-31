@@ -33,24 +33,24 @@ public abstract class Veiculo {
     }
 
     public void setPlaca(String placa) {
-        if (placa == null || placa.trim().isEmpty()) {
+        if (placa == null || placa.isEmpty()) {
             return;
         }
-        this.placa = placa.trim();
+        this.placa = placa;
     }
 
     public void setMarca(String marca) {
-        if (marca == null || marca.trim().isEmpty()) {
+        if (marca == null || marca.isEmpty()) {
             return;
         }
-        this.marca = marca.trim();
+        this.marca = marca;
     }
 
     public void setModelo(String modelo) {
-        if (modelo == null || modelo.trim().isEmpty()) {
+        if (modelo == null || modelo.isEmpty()) {
             return;
         }
-        this.modelo = modelo.trim();
+        this.modelo = modelo;
     }
 
     public void setAno(Integer ano) {

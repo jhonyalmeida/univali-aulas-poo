@@ -1,4 +1,4 @@
-package br.univali.turma2601;
+package br.univali.turma2601.aula02;
 
 public class Arma {
 

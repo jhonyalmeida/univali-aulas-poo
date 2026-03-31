@@ -1,4 +1,4 @@
-package br.univali.turma2601.aulasm1;
+package br.univali.turma2601.aula03;
 
 public class Main {
 

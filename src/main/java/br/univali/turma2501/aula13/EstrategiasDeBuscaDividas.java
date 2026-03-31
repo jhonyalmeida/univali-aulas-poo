@@ -4,7 +4,7 @@ public enum EstrategiasDeBuscaDividas implements Strategy {
     BARCODE {
         @Override
         public String buscarDividas(Context context) {
-            return new BuscarComBarcode().buscarDividas(context);
+            return new BuscarComCodigoBarras().buscarDividas(context);
         }
     },
     REFERENCE{

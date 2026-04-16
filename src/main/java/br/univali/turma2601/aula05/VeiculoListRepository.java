@@ -10,7 +10,7 @@ public class VeiculoListRepository implements VeiculoRepository {
 
     @Override
     public void cadastrar(Veiculo veiculo) {
-        veiculo.setId(proximoId);
+        veiculo.setId(proximoId());
         veiculos.add(veiculo);
     }
 

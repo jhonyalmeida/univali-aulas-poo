@@ -5,7 +5,7 @@ import java.util.List;
 
 public class VeiculoListRepository implements VeiculoRepository {
 
-    private final List<Veiculo> veiculos = new ArrayList<>();
+    private List<Veiculo> veiculos = new ArrayList<>();
     private Integer proximoId = 1;
 
     @Override

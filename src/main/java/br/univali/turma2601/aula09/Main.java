@@ -16,6 +16,7 @@ public class Main {
             System.out.println("Digite a descrição:");
             String descricao = sc.nextLine();
 
+            //adicionar tratamento de erro
             System.out.println("Digite o preço:");
             Double preco = Double.parseDouble(sc.nextLine());
 

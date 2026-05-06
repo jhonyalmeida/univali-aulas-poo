@@ -9,4 +9,11 @@ public class Comida extends Produto {
         super(nome, descricao, preco);
         this.peso = peso;
     }
+
+    @Override
+    public String toString() {
+        return "Comida{" +
+                "peso=" + peso +
+                "} " + super.toString();
+    }
 }

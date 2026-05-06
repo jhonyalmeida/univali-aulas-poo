@@ -9,4 +9,11 @@ public class Bebida extends Produto {
         super(nome, descricao, preco);
         this.litros = litros;
     }
+
+    @Override
+    public String toString() {
+        return "Bebida{" +
+                "litros=" + litros +
+                '}';
+    }
 }

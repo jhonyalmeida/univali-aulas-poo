@@ -4,45 +4,60 @@ import java.util.Scanner;
 
 public class Main {
 
+    Menu menu = new Menu();
+    Console console = new Console();
+
+    /**
+     * Exercício - implementar opção de ordenar o menu do item mais barato para o mais caro
+     * Usuário pode escolher ao listar menu: alfabético por nome ou por preço
+     */
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        Scanner sc = new Scanner(System.in);
+        Main main = new Main();
+        main.executar();
+    }
 
-        while (true) {
+    private void executar() {
+        System.out.println("Bem vindo");
 
-            System.out.println("Digite o nome:");
-            String nome = sc.nextLine();
-
-            System.out.println("Digite a descrição:");
-            String descricao = sc.nextLine();
-
-            //adicionar tratamento de erro
-            System.out.println("Digite o preço:");
-            Double preco = Double.parseDouble(sc.nextLine());
-
-            System.out.println("Digite o tipo de item 1 - Comida ou 2 - Bebida:");
-            Integer tipo = Integer.parseInt(sc.nextLine());
-
-            Produto produto;
-
-            if (tipo == 1) {
-                System.out.println("Digite o peso da comida");
-                Double peso = Double.parseDouble(sc.nextLine());
-
-                produto = new Comida(nome, descricao, preco, peso);
-                menu.adicionarProduto((Comida) produto);
+        Integer opcao = 0;
+        while (opcao != 3) {
+            System.out.println("1 - Inserir novo produto");
+            System.out.println("2 - Listar menu");
+            System.out.println("3 - Sair");
+            opcao = console.lerInteiro();
+            if (opcao == 1) {
+                cadastrarProduto();
             }
-
-            if (tipo == 2) {
-                System.out.println("Digite quantos litros tem a bebida");
-                Double litros = Double.parseDouble(sc.nextLine());
-
-                produto = new Bebida(nome, descricao, preco, litros);
-                menu.adicionarProduto((Bebida) produto);
+            if (opcao == 2) {
+                listarProdutos();
             }
+        }
+    }
 
+    private void cadastrarProduto() {
+        String nome = console.lerString("Digite o nome:");
+        String descricao = console.lerString("Digite o descricao:");
+        Double preco = console.lerDouble("Digite o valor:");
+        Integer tipo = console.lerInteiro("Digite o tipo de item 1 - Comida ou 2 - Bebida:");
+
+        Produto produto;
+
+        if (tipo == 1) {
+            Double peso = console.lerDouble("Digite o peso da comida:");
+            produto = new Comida(nome, descricao, preco, peso);
+            menu.adicionarProduto((Comida) produto);
         }
 
+        if (tipo == 2) {
+            Double litros = console.lerDouble("Digite quantos litros:");
+            produto = new Bebida(nome, descricao, preco, litros);
+            menu.adicionarProduto((Bebida) produto);
+        }
+    }
+
+    private void listarProdutos() {
+        String exibicao = menu.exibir(new NomeComparator());
+        System.out.println(exibicao);
     }
 
 }

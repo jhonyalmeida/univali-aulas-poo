@@ -30,7 +30,7 @@ public class Exercicio10 {
     public Exercicio10() {
         NotaFiscal notaFiscal = new NotaFiscal();
         List<Item> itens = new ArrayList<>();
-        itens.add(new Item("Item 1"));
+        //itens.add(new Item("Item 1"));
         try {
             notaFiscal.setItens(itens);
             System.out.print("Itens adicionados");

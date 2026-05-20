@@ -1,5 +1,6 @@
 package br.univali.turma2601.aula09;
 
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -56,7 +57,16 @@ public class Main {
     }
 
     private void listarProdutos() {
-        String exibicao = menu.exibir(new NomeComparator());
+        int opcaoOrdenacao = console.lerInteiro("1 - Ordem alfabétic, 2 - Ordem por preço");
+
+        Comparator<Produto> comparator = new NomeComparator();
+        if (opcaoOrdenacao == 1) {
+            comparator = new NomeComparator();
+        }
+        if (opcaoOrdenacao == 2) {
+            comparator = new PrecoComparator();
+        }
+        String exibicao = menu.exibir(comparator);
         System.out.println(exibicao);
     }
 

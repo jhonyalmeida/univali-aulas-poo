@@ -1,6 +1,8 @@
 package br.univali.turma2601.aula09;
 
-public class Comida extends Produto {
+import br.univali.turma2601.aula10.Pesavel;
+
+public class Comida extends Produto implements Pesavel {
 
     private Double peso;
 
@@ -15,5 +17,10 @@ public class Comida extends Produto {
         return "Comida{" +
                 "peso=" + peso +
                 "} " + super.toString();
+    }
+
+    @Override
+    public Double getPeso() {
+        return this.peso;
     }
 }

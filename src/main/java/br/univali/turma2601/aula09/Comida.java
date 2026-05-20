@@ -1,6 +1,6 @@
 package br.univali.turma2601.aula09;
 
-import br.univali.turma2601.aula10.Pesavel;
+import br.univali.turma2601.aula11.Pesavel;
 
 public class Comida extends Produto implements Pesavel {
 

@@ -1,20 +1,33 @@
 package br.univali.turma2601.aula09;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Comparator;
-import java.util.Scanner;
 
 public class Main {
 
     Menu menu = new Menu();
-    Console console = new Console();
+    Console console;
 
     /**
-     * Exercício - implementar opção de ordenar o menu do item mais barato para o mais caro
-     * Usuário pode escolher ao listar menu: alfabético por nome ou por preço
+     * Exercícios aula 12
+     *
+     * 1) Modificar método exibir do Menu para ordenar todos os produtos segundo a ordem estabelecida (nome ou preço),
+     * não importa se sejam comidas ou bebidas.
+     *
+     * 2) Implementar opções para alterar preço de produto e remover produto do catálogo.
+     *
+     * 3) Reestruturar o programa para extrair os métodos privados para objetos próprios, cada função sendo um objeto
+     * separado ao invés de todas estarem implementadas no Main.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Main main = new Main();
         main.executar();
+    }
+
+    public Main() throws IOException {
+        String path = getClass().getResource("/aula09/input.txt").getPath();
+        console = new Console(new FileInputStream(path));
     }
 
     private void executar() {
@@ -57,7 +70,7 @@ public class Main {
     }
 
     private void listarProdutos() {
-        int opcaoOrdenacao = console.lerInteiro("1 - Ordem alfabétic, 2 - Ordem por preço");
+        int opcaoOrdenacao = console.lerInteiro("1 - Ordem alfabética, 2 - Ordem por preço");
 
         Comparator<Produto> comparator = new NomeComparator();
         if (opcaoOrdenacao == 1) {

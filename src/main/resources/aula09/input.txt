@@ -1,0 +1,39 @@
+1
+Pizza Margherita
+Pizza italiana com molho de tomate e mussarela
+25.90
+1
+0.5
+1
+Hamburguer Artesanal
+Hamburguer com carne, queijo e salada
+18.50
+1
+0.3
+1
+Frango Grelhado
+Peito de frango grelhado com ervas
+22.00
+1
+0.4
+1
+Coca-Cola
+Refrigerante de cola gelado
+6.50
+2
+0.35
+1
+Suco de Laranja
+Suco natural de laranja espremido na hora
+8.00
+2
+0.5
+1
+Água Mineral
+Água mineral sem gás
+3.00
+2
+0.5
+2
+2
+3

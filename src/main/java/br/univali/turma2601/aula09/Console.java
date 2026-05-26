@@ -1,10 +1,15 @@
 package br.univali.turma2601.aula09;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class Console {
 
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+
+    public Console(InputStream inputStream) {
+        this.scanner = new Scanner(inputStream);
+    }
 
     public String lerString(String msg) {
         System.out.println(msg);

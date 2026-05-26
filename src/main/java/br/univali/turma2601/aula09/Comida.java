@@ -14,9 +14,7 @@ public class Comida extends Produto implements Pesavel {
 
     @Override
     public String toString() {
-        return "Comida{" +
-                "peso=" + peso +
-                "} " + super.toString();
+        return "{\"nome\":\"" + getNome() + "\",\"descricao\":\"" + getDescricao() + "\",\"preco\":" + getPreco() + ",\"peso\":" + peso + "}";
     }
 
     @Override

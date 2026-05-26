@@ -12,8 +12,6 @@ public class Bebida extends Produto {
 
     @Override
     public String toString() {
-        return "Bebida{" +
-                "litros=" + litros +
-                '}';
+        return "{\"nome\":\"" + getNome() + "\",\"descricao\":\"" + getDescricao() + "\",\"preco\":" + getPreco() + ",\"litros\":" + litros + "}";
     }
 }

@@ -28,6 +28,8 @@ public class Main {
     public Main() throws IOException {
         String path = getClass().getResource("/aula09/input.txt").getPath();
         console = new Console(new FileInputStream(path));
+        //Descomentar a linha abaixo para usar o modo interativo, sem leitura do arquivo
+        //console = new Console(System.in);
     }
 
     private void executar() {

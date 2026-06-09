@@ -1,4 +1,4 @@
-package br.univali.turma2601.aula12;
+package br.univali.turma2601.threads;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,11 @@ import java.util.List;
 public class Corrida {
 
     /**
-     * Exercícios aula 12 - Desafio extra
+     * Exercícios aula 13 - Desafio extra
      *
-     * Ler sobre threads na apresentação de temas complementares no AVA.
+     * Ler sobre threads na apresentação de temas complementares no AVA, pesquisar sobre compartilhamento de dados
+     * entre threads.
+     *
      * - O método start inicia uma nova thread que executa em paralelo.
      * - O método join faz com que a thread atual espere pela outra terminar.
      *
@@ -25,10 +27,14 @@ public class Corrida {
         Integer distanciaTotal = 100;
 
         List<Cavalo> cavalos = new ArrayList<>();
-        cavalos.add(new Cavalo("Blue", distanciaTotal));
-        cavalos.add(new Cavalo("Green", distanciaTotal));
-        cavalos.add(new Cavalo("Red", distanciaTotal));
-        cavalos.add(new Cavalo("Yellow", distanciaTotal));
+        cavalos.add(new Cavalo("Azulão", "blue", distanciaTotal));
+        cavalos.add(new Cavalo("Verdão", "green", distanciaTotal));
+        cavalos.add(new Cavalo("Vermelhão", "red", distanciaTotal));
+        cavalos.add(new Cavalo("Amarelão", "yellow", distanciaTotal));
+
+        VisualizadorCorrida visualizador = new VisualizadorCorrida(cavalos);
+        Thread threadVisualizador = new Thread(visualizador);
+        threadVisualizador.start();
 
         List<Thread> threads = new ArrayList<>();
         for (Cavalo cavalo : cavalos) {
@@ -45,6 +51,13 @@ public class Corrida {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+
+        visualizador.parar();
+        try {
+            threadVisualizador.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

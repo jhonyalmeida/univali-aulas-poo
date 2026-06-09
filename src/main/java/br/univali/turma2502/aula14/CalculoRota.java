@@ -10,7 +10,7 @@ public enum CalculoRota implements CalculoRotaStrategy {
     CARRO {
         @Override
         public Rota calcularRota(Ponto p1, Ponto p2) {
-            return new Rota();
+            return new CalculoCarro(p1, p2).calcularRota();
         }
     },
     TRANSPORTE_PUBLICO {

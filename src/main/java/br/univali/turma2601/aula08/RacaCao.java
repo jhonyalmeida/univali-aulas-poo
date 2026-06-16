@@ -1,7 +1,4 @@
-package br.univali.turma2601.aula08.exemplo;
-
-import br.univali.turma2601.aula07.NomeavelPlus;
-import org.jetbrains.annotations.NotNull;
+package br.univali.turma2601.aula08;
 
 import java.util.Objects;
 

@@ -12,11 +12,11 @@ public class Calculadora {
         this.randomGenerator = randomGenerator;
     }
 
-    public int somar(int a, int b) {
+    public int somar(Integer a, Integer b) {
         return a + b;
     }
 
-    public int dividir(int a, int b) {
+    public int dividir(Integer a, Integer b) {
         try {
             return a / b;
         } catch (ArithmeticException e) {
@@ -24,7 +24,7 @@ public class Calculadora {
         }
     }
 
-    public int somarAleatorio(int numero) {
+    public int somarAleatorio(Integer numero) {
         return numero + randomGenerator.getRandomInt();
     }
 

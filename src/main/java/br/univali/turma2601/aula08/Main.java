@@ -1,7 +1,6 @@
-package br.univali.turma2601.aula08.exemplo;
+package br.univali.turma2601.aula08;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 

@@ -1,4 +1,4 @@
-package br.univali.turma2601.aula08.exemplo;
+package br.univali.turma2601.aula08;
 
 public enum PeriodoDia {
     MATUTINO("9:00", "12:00"),
